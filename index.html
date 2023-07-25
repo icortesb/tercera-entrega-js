@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segunda entrega Javascript</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Remeras -->
+    <section>
+      <div class="galeria-remeras">
+        <!-- Remera blanca -->
+        <h6>Remera blanca - $5000</h6>
+        <img
+          id="remera-blanca"
+          src="./assets/remera-blanca.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button id="agregar-remera-blanca" class="btn btn-success">
+            Agregar al carrito
+          </button>
+          <select class="talle" name="talle" id="talle-remera-blanca">
+            <option value="Sin talle">Talle</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <!-- Remera negra -->
+        <h6>Remera negra - $4000</h6>
+        <img
+          id="remera-negra"
+          src="./assets/remera-negra.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button id="agregar-remera-negra" class="btn btn-success">
+            Agregar al carrito
+          </button>
+          <select class="talle" name="talle" id="talle-remera-negra">
+            <option value="Sin talle">Talle</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+        <!-- Remera roja -->
+        <h6>Remera roja - $3500</h6>
+        <img
+          id="remera-roja"
+          src="./assets/remera-roja.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button id="agregar-remera-roja" class="btn btn-success">
+            Agregar al carrito
+          </button>
+          <select class="talle" name="talle" id="talle-remera-roja">
+            <option value="Sin talle">Talle</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+      </div>
+    </section>
+    <!-- Pantalones -->
+    <!-- <section>
+      <div class="galeria-pantalones">
+        <h6>Remera blanca - $5000</h6>
+        <img
+          id="remera-blanca"
+          src="./assets/remera-blanca.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button class="btn btn-success">Agregar al carrito</button>
+          <select class="talle" name="talle" id="talle-remera-blanca">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <h6>Remera negra - $4000</h6>
+        <img
+          id="remera-negra"
+          src="./assets/remera-negra.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button class="btn btn-success">Agregar al carrito</button>
+          <select class="talle" name="talle" id="talle-remera-negra">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+        <h6>Remera roja - $3500</h6>
+        <img
+          id="remera-roja"
+          src="./assets/remera-roja.jpg"
+          alt=""
+          class="foto-prenda"
+        />
+        <div class="footer-prenda">
+          <button class="btn btn-success">Agregar al carrito</button>
+          <select class="talle" name="talle" id="talle-remera-roja">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Carrito -->
+    <section>
+      <div class="carrito">
+        <div class="carrito-header">
+          <h2 class="bg-secondary">Carrito de compras</h2>
+        </div>
+        <div class="lista-productos">
+          <ul id="lista-productos"></ul>
+          <ul>
+            <li id="precio-final" class="precio-final"></li>
+          </ul>
+        </div>
+        <div class="carrito-footer">
+          <button id="eliminar-ultimo" class="btn btn-info">
+            Eliminar último
+          </button>
+          <button id="finalizar-compra" class="btn btn-danger">
+            Finalizar compra
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
