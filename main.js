@@ -24,10 +24,14 @@ class Prenda {
   }
 
   getFechaDevolucion() {
-    const fechaDevolucion = new Date(
-      this.fechaDeCompra.getTime() + 30 * milisegundosPorDIa
-    );
-    return fechaDevolucion.toDateString();
+    if (this.fechaDeCompra) {
+      const fechaDevolucion = new Date(
+        this.fechaDeCompra.getTime() + 30 * milisegundosPorDIa
+      );
+      return fechaDevolucion.toDateString();
+    } else {
+      return "Fecha de devolución no disponible";
+    }
   }
 }
 
@@ -35,9 +39,13 @@ const agregarPrenda = (prenda) => {
   if (prenda.talle === "Sin talle") {
     alert("Seleccione el talle para agregar al carrito");
   } else {
-    carrito.push(
-      new Prenda(prenda.id, prenda.nombre, prenda.precio, prenda.talle)
+    const nuevaPrenda = new Prenda(
+      prenda.id,
+      prenda.nombre,
+      prenda.precio,
+      prenda.talle
     );
+    carrito.push(nuevaPrenda);
     alert(`Se agregó al carrito ${prenda.nombre} talle ${prenda.talle}`);
     console.log(carrito);
     actualizarListaProductos();
@@ -62,7 +70,7 @@ const actualizarListaProductos = () => {
 
 const actualizarPrecioFinal = () => {
   const precioFinal = carrito.reduce(
-    (total, producto) => total + producto.getIva(),
+    (total, prenda) => total + prenda.getIva(),
     0
   );
   const precioFinalElement = document.getElementById("precio-final");
@@ -90,7 +98,12 @@ const carritoGuardado = localStorage.getItem("carrito");
 
 // Si hay un carrito almacenado, cárgalo en la variable carrito
 if (carritoGuardado) {
-  carrito = JSON.parse(carritoGuardado);
+  const carritoParseado = JSON.parse(carritoGuardado);
+  carrito = carritoParseado.map(
+    (item) => new Prenda(item.id, item.nombre, item.precio, item.talle)
+  );
+  actualizarListaProductos();
+  actualizarPrecioFinal();
 }
 // Remera blanca
 const remeraBlanca = new Prenda(1, "Remera Blanca", 5000, "Sin talle");
