@@ -31,18 +31,18 @@ class Prenda {
   }
 }
 
-
-
 const agregarPrenda = (prenda) => {
-  prenda.talle === "Sin talle"
-    ? alert("Seleccione el talle para agregar al carrito")
-    : carrito.push(
-        new Prenda(prenda.id, prenda.nombre, prenda.precio, prenda.talle)
-      );
-  alert(`Se agregó al carrito ${prenda.nombre} talle ${prenda.talle}`);
-  console.log(carrito);
-  actualizarListaProductos();
-  actualizarPrecioFinal();
+  if (prenda.talle === "Sin talle") {
+    alert("Seleccione el talle para agregar al carrito");
+  } else {
+    carrito.push(
+      new Prenda(prenda.id, prenda.nombre, prenda.precio, prenda.talle)
+    );
+    alert(`Se agregó al carrito ${prenda.nombre} talle ${prenda.talle}`);
+    console.log(carrito);
+    actualizarListaProductos();
+    actualizarPrecioFinal();
+  }
 };
 
 const actualizarListaProductos = () => {
@@ -139,3 +139,13 @@ finalizarCompra.onclick = function () {
   );
 };
 
+
+// JSON Y LOCAL STORAGE
+
+// Hay que transformar el objeto a JSON con STRINGIFY
+// JS.stringify(objeto)
+
+// Para traerlo como objeto se usa PARSE
+// JSON.parse(json)
+
+localStorage.setItem("saludar", "hola");
