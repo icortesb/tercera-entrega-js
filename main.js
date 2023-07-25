@@ -42,7 +42,7 @@ const agregarPrenda = (prenda) => {
     console.log(carrito);
     actualizarListaProductos();
     actualizarPrecioFinal();
-    guardarCarritoEnLocalStorage(); // Guardar el carrito en el localStorage
+    guardarCarritoEnLocalStorage();
   }
 };
 
@@ -81,7 +81,7 @@ const eliminarUltimoProducto = () => {
     carrito.pop();
     actualizarListaProductos();
     actualizarPrecioFinal();
-    guardarCarritoEnLocalStorage(); // Guardar el carrito en el localStorage
+    guardarCarritoEnLocalStorage();
   }
 };
 
@@ -151,4 +151,3 @@ finalizarCompra.onclick = function () {
     `Gracias por comprar con nosotros ${nombre}. Usted recibirá su compra en ${domicilio} en los siguientes 30 días. Recuerde que puede devolver el producto hasta ${carrito[0].getFechaDevolucion()}.`
   );
 };
-
