@@ -42,7 +42,13 @@ const agregarPrenda = (prenda) => {
     console.log(carrito);
     actualizarListaProductos();
     actualizarPrecioFinal();
+    guardarCarritoEnLocalStorage(); // Guardar el carrito en el localStorage
   }
+};
+
+const guardarCarritoEnLocalStorage = () => {
+  // Guardar el carrito en el localStorage convirtiéndolo a una cadena de texto
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const actualizarListaProductos = () => {
@@ -75,9 +81,17 @@ const eliminarUltimoProducto = () => {
     carrito.pop();
     actualizarListaProductos();
     actualizarPrecioFinal();
+    guardarCarritoEnLocalStorage(); // Guardar el carrito en el localStorage
   }
 };
 
+// Obtener el carrito almacenado en el localStorage (si existe)
+const carritoGuardado = localStorage.getItem("carrito");
+
+// Si hay un carrito almacenado, cárgalo en la variable carrito
+if (carritoGuardado) {
+  carrito = JSON.parse(carritoGuardado);
+}
 // Remera blanca
 const remeraBlanca = new Prenda(1, "Remera Blanca", 5000, "Sin talle");
 
@@ -90,7 +104,6 @@ selectTalleRemeraBlanca.addEventListener("change", function () {
 const agregarRemeraBlanca = document.getElementById("agregar-remera-blanca");
 agregarRemeraBlanca.onclick = function () {
   agregarPrenda(remeraBlanca);
-  agregarOtra();
 };
 
 // Remera negra
@@ -139,13 +152,3 @@ finalizarCompra.onclick = function () {
   );
 };
 
-
-// JSON Y LOCAL STORAGE
-
-// Hay que transformar el objeto a JSON con STRINGIFY
-// JS.stringify(objeto)
-
-// Para traerlo como objeto se usa PARSE
-// JSON.parse(json)
-
-localStorage.setItem("saludar", "hola");
