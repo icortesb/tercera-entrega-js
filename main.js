@@ -53,6 +53,14 @@ const agregarPrenda = (prenda) => {
     guardarCarritoEnLocalStorage();
   }
 };
+// Setear talle por defecto para que no cause problemas al actualizar pagina por el evento change
+
+const setTallePredeterminado = () => {
+  const selectoresTalle = document.querySelectorAll(".talle");
+  selectoresTalle.forEach((selector) => {
+    selector.value = "Sin talle";
+  });
+};
 
 const guardarCarritoEnLocalStorage = () => {
   // Guardar el carrito en el localStorage convirtiéndolo a una cadena de texto
@@ -104,6 +112,7 @@ if (carritoGuardado) {
   );
   actualizarListaProductos();
   actualizarPrecioFinal();
+  setTallePredeterminado();
 }
 // Remera blanca
 const remeraBlanca = new Prenda(1, "Remera Blanca", 5000, "Sin talle");
